@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Search, X, Calendar, User, BookOpen, Play } from 'lucide-react';
-import Faith from '../assets/images/faith.jpg';
+import Faith from '../assets/images/Faith.jpg';
 import NextLevel from '../assets/images/NextLevel.jpg';
 import MattersOfTheHeart from '../assets/images/MattersOfTheHeart.jpg';
 
