@@ -45,7 +45,7 @@ const Messages = () => {
         series: "Faith Series",
         description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
         spotifyUrl:"https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
-        thumbnail: Faith
+        thumbnail: FaiTh
       },
       {
         id: 5,
@@ -65,7 +65,7 @@ const Messages = () => {
         series: "Faith Series",
         description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
         spotifyUrl: "https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
-        thumbnail: Faith
+        thumbnail: FaiTh
       }
   ];
 
