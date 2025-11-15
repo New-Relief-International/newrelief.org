@@ -431,6 +431,7 @@ import EaglesWings from '../assets/images/EaglesWings.png';
 import DramaFest from '../assets/images/DramaFest.jpg';
 import Missions from '../assets/images/Missions.jpg';
 import ServiceOnTheBlood from '../assets/images/ServiceOnTheBlood.jpg';
+import { Link } from 'react-router';
 
 const EventsPage = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -471,9 +472,9 @@ const EventsPage = () => {
       time: "Evening Performances",
       location: "Theater Hall",
       icon: Theater,
-      color: "from-purple-600 to-pink-600",
-      bgColor: "bg-purple-50",
-      borderColor: "border-purple-200",
+      color: "from-blue-600 to-indigo-600",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200",
       image: DramaFest,
       description: "DramaFest is our annual event featuring powerful stage performances and stories designed to teach, inspire, and change lives. Using drama as a medium for evangelism, we present life-transforming lessons based on Christian principles through captivating theatrical productions.",
       highlights: [
@@ -497,9 +498,9 @@ const EventsPage = () => {
       time: "Multi-Day Campaign",
       location: "Communities Across Ghana & Beyond",
       icon: Globe,
-      color: "from-green-600 to-teal-600",
-      bgColor: "bg-green-50",
-      borderColor: "border-green-200",
+      color: "from-blue-600 to-indigo-600",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200",
       image: Missions,
       description: "Our annual evangelical outreach program aimed at winning and nurturing souls in communities across Ghana and around the world. We take the Great Commission seriously, going into neighborhoods, villages, and cities to share the love of Christ and disciple new believers.",
       highlights: [
@@ -522,9 +523,9 @@ const EventsPage = () => {
       time: "Good Friday & Resurrection Sunday",
       location: "Main Sanctuary",
       icon: Cross,
-      color: "from-red-600 to-rose-600",
-      bgColor: "bg-red-50",
-      borderColor: "border-red-200",
+      color:"from-blue-600 to-indigo-600",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200",
       image: ServiceOnTheBlood,
       description: "Our Easter convention focused on the Christian concept of the blood of Jesus. This spiritual event aims to have attendees experience the life-transforming power of the Blood that still speaks through teachings, prayers, and worship, celebrating the resurrection of Jesus Christ.",
       highlights: [
@@ -547,9 +548,9 @@ const EventsPage = () => {
       time: "3-Day Program",
       location: "Convention Center",
       icon: Heart,
-      color: "from-orange-600 to-amber-600",
-      bgColor: "bg-orange-50",
-      borderColor: "border-orange-200",
+      color: "from-blue-600 to-indigo-600",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200",
       image: "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&h=500&fit=crop",
       description: "Let God Arise is a powerful annual conference where we gather to experience God's manifest presence and power. Through fervent worship, prophetic ministry, and anointed teachings, we witness God arising in the lives of His people, bringing breakthrough, healing, and deliverance.",
       highlights: [
@@ -572,7 +573,7 @@ const EventsPage = () => {
       time: "Morning & Evening Services",
       location: "Main Sanctuary",
       icon: Gift,
-      color: "from-emerald-600 to-green-600",
+      color: "from-blue-600 to-indigo-600",
       bgColor: "bg-emerald-50",
       borderColor: "border-emerald-200",
       image: "https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=800&h=500&fit=crop",
@@ -673,9 +674,9 @@ const EventsPage = () => {
             Every event is an opportunity to grow in faith, connect with believers, and impact lives for eternity. 
             Don't miss out on what God is doing through New Relief International!
           </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all shadow-lg">
+          <Link to="/contact-us" className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all shadow-lg">
             Contact Us for More Info
-          </button>
+          </Link>
         </div>
       </div>
 

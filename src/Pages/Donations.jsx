@@ -1072,7 +1072,7 @@ const DonationsPage = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors"
-                      placeholder="John Mensah"
+                      placeholder="Please enter your full name"
                     />
                   </div>
 
@@ -1085,7 +1085,7 @@ const DonationsPage = () => {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors"
-                      placeholder="0244123456"
+                      placeholder="XXX XXXX XXXX"
                     />
                   </div>
                 </div>
