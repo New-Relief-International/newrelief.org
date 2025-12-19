@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import { Search, X, Calendar, User, BookOpen, Play } from 'lucide-react';
-// import faith from '../assets/images/faith.jpg';
-// import NextLevel from '../assets/images/NextLevel.jpg';
-// import MattersOfTheHeart from '../assets/images/MattersOfTheHeart.jpg';
 
 const Messages = () => {
   // Mock sermon data - replace with your actual data from database
@@ -78,7 +75,7 @@ const Messages = () => {
         thumbnail: '/images/faith.jpg'
       },
       {
-        id: 9,
+        id: 8,
         title: "The Next Level",
         speaker: "Pastor Leonard",
         date: "2025-11-02",
