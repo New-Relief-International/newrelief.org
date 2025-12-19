@@ -100,17 +100,17 @@ const Footer = () => {
         <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10">
         {/* Main Footer Content */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6"
           variants={containerVariants}
           initial="hidden"
           animate={controls}
         >
           {/* About Section */}
           <motion.div 
-            className="backdrop-blur-xl bg-blue-800/40 p-6 rounded-lg shadow-lg border border-blue-700/30"
+            className="backdrop-blur-xl bg-blue-800/40 p-4 sm:p-5 md:p-6 rounded-lg shadow-lg border border-blue-700/30"
             variants={itemVariants}
           >
             <motion.div
@@ -120,58 +120,58 @@ const Footer = () => {
               variants={cardHoverAnimation}
               className="h-full"
             >
-              <div className="flex items-center space-x-3 mb-4">
+              <div className="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
                 <motion.div 
-                  className="w-26 h-18 bg-white rounded-full flex items-center justify-center shadow-lg border border-blue-500/30"
+                  className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-lg border border-blue-500/30 flex-shrink-0"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   <img 
                     src={loGo}
                     alt="New Relief International Logo" 
-                    className="w-12 h-12 object-contain"
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain"
                   />
                 </motion.div>
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-white leading-tight">
                   New Relief International
                 </h3>
               </div>
-              <p className="text-blue-100 mb-4">
+              <p className="text-sm sm:text-base text-blue-100 mb-3 sm:mb-4 leading-relaxed">
                 Reaching out to people with the Gospel and nurturing them into maturity in their 
                 walk with Jesus Christ is the mission of the organization.
               </p>
-              <div className="flex space-x-4">
+              <div className="flex space-x-2 sm:space-x-3 md:space-x-4">
                 <motion.a
                   href="#"
-                  className="bg-blue-800/70 backdrop-blur-sm hover:bg-blue-700 p-2 rounded-full transition-colors border border-blue-600/30 shadow-lg text-blue-200 hover:text-white"
+                  className="bg-blue-800/70 backdrop-blur-sm hover:bg-blue-700 p-1.5 sm:p-2 rounded-full transition-colors border border-blue-600/30 shadow-lg text-blue-200 hover:text-white"
                   whileHover={{ scale: 1.1, y: -5 }}
                   aria-label="Facebook"
                 >
-                  <Facebook size={20} />
+                  <Facebook size={18} className="sm:w-5 sm:h-5" />
                 </motion.a>
                 <motion.a
                   href="#"
-                  className="bg-blue-800/70 backdrop-blur-sm hover:bg-blue-700 p-2 rounded-full transition-colors border border-blue-600/30 shadow-lg text-blue-200 hover:text-white"
+                  className="bg-blue-800/70 backdrop-blur-sm hover:bg-blue-700 p-1.5 sm:p-2 rounded-full transition-colors border border-blue-600/30 shadow-lg text-blue-200 hover:text-white"
                   whileHover={{ scale: 1.1, y: -5 }}
                   aria-label="Twitter"
                 >
-                  <Twitter size={20} />
+                  <Twitter size={18} className="sm:w-5 sm:h-5" />
                 </motion.a>
                 <motion.a
                   href="#"
-                  className="bg-blue-800/70 backdrop-blur-sm hover:bg-blue-700 p-2 rounded-full transition-colors border border-blue-600/30 shadow-lg text-blue-200 hover:text-white"
+                  className="bg-blue-800/70 backdrop-blur-sm hover:bg-blue-700 p-1.5 sm:p-2 rounded-full transition-colors border border-blue-600/30 shadow-lg text-blue-200 hover:text-white"
                   whileHover={{ scale: 1.1, y: -5 }}
                   aria-label="Instagram"
                 >
-                  <Instagram size={20} />
+                  <Instagram size={18} className="sm:w-5 sm:h-5" />
                 </motion.a>
                 <motion.a
                   href="#"
-                  className="bg-blue-800/70 backdrop-blur-sm hover:bg-blue-700 p-2 rounded-full transition-colors border border-blue-600/30 shadow-lg text-blue-200 hover:text-white"
+                  className="bg-blue-800/70 backdrop-blur-sm hover:bg-blue-700 p-1.5 sm:p-2 rounded-full transition-colors border border-blue-600/30 shadow-lg text-blue-200 hover:text-white"
                   whileHover={{ scale: 1.1, y: -5 }}
                   aria-label="Youtube"
                 >
-                  <Youtube size={20} />
+                  <Youtube size={18} className="sm:w-5 sm:h-5" />
                 </motion.a>
               </div>
             </motion.div>
@@ -179,7 +179,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <motion.div 
-            className="backdrop-blur-xl bg-blue-800/40 p-6 rounded-lg shadow-lg border border-blue-700/30"
+            className="backdrop-blur-xl bg-blue-800/40 p-4 sm:p-5 md:p-6 rounded-lg shadow-lg border border-blue-700/30"
             variants={itemVariants}
           >
             <motion.div
@@ -189,7 +189,7 @@ const Footer = () => {
               variants={cardHoverAnimation}
               className="h-full"
             >
-              <h3 className="text-xl font-bold mb-4 text-white">Quick Links</h3>
+              <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white">Quick Links</h3>
               <ul className="space-y-2">
                 {["About Us", "Sermon Archive", "Ministry Updates", "Community Outreach", "Prayer Requests", "Donate"].map((item, index) => (
                   <motion.li
@@ -221,7 +221,7 @@ const Footer = () => {
 
           {/* Service Times */}
           <motion.div 
-            className="backdrop-blur-xl bg-blue-800/40 p-6 rounded-lg shadow-lg border border-blue-700/30"
+            className="backdrop-blur-xl bg-blue-800/40 p-4 sm:p-5 md:p-6 rounded-lg shadow-lg border border-blue-700/30"
             variants={itemVariants}
           >
             <motion.div
@@ -231,33 +231,33 @@ const Footer = () => {
               variants={cardHoverAnimation}
               className="h-full"
             >
-              <h3 className="text-xl font-bold mb-4 text-white">Service Times</h3>
-              <ul className="space-y-3">
-                <li className="flex items-center">
-                  <Clock size={16} className="mr-2 text-blue-300" />
-                  <span className="text-blue-100">
+              <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white">Service Times</h3>
+              <ul className="space-y-2 sm:space-y-3">
+                <li className="flex items-start sm:items-center">
+                  <Clock size={14} className="sm:w-4 sm:h-4 mr-2 text-blue-300 flex-shrink-0 mt-0.5 sm:mt-0" />
+                  <span className="text-sm sm:text-base text-blue-100">
                     Sunday Worship: 8:00 AM - 12:00 PM
                   </span>
                 </li>
-                <li className="flex items-center">
-                  <Clock size={16} className="mr-2 text-blue-300" />
-                  <span className="text-blue-100">
+                <li className="flex items-start sm:items-center">
+                  <Clock size={14} className="sm:w-4 sm:h-4 mr-2 text-blue-300 flex-shrink-0 mt-0.5 sm:mt-0" />
+                  <span className="text-sm sm:text-base text-blue-100">
                     Bible Study: Wednesday 6:00 PM
                   </span>
                 </li>
-                <li className="flex items-center">
-                  <Clock size={16} className="mr-2 text-blue-300" />
-                  <span className="text-blue-100">
+                <li className="flex items-start sm:items-center">
+                  <Clock size={14} className="sm:w-4 sm:h-4 mr-2 text-blue-300 flex-shrink-0 mt-0.5 sm:mt-0" />
+                  <span className="text-sm sm:text-base text-blue-100">
                     Prayer Meeting: Friday 7:00 PM
                   </span>
                 </li>
-                <li className="flex items-center">
-                  <Calendar size={16} className="mr-2 text-blue-300" />
-                  <span className="text-blue-100">
+                <li className="flex items-start sm:items-center">
+                  <Calendar size={14} className="sm:w-4 sm:h-4 mr-2 text-blue-300 flex-shrink-0 mt-0.5 sm:mt-0" />
+                  <span className="text-sm sm:text-base text-blue-100">
                     Youth Group: Saturday 4:00 PM
                   </span>
                 </li>
-                <li className="mt-4 text-blue-200">
+                <li className="mt-3 sm:mt-4 text-sm sm:text-base text-blue-200">
                   <p>* Special services on holidays</p>
                 </li>
               </ul>
@@ -266,7 +266,7 @@ const Footer = () => {
 
           {/* Contact Information */}
           <motion.div 
-            className="backdrop-blur-xl bg-blue-800/40 p-6 rounded-lg shadow-lg border border-blue-700/30"
+            className="backdrop-blur-xl bg-blue-800/40 p-4 sm:p-5 md:p-6 rounded-lg shadow-lg border border-blue-700/30"
             variants={itemVariants}
           >
             <motion.div
@@ -276,25 +276,25 @@ const Footer = () => {
               variants={cardHoverAnimation}
               className="h-full"
             >
-              <h3 className="text-xl font-bold mb-4 text-white">Contact Us</h3>
-              <ul className="space-y-3">
+              <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white">Contact Us</h3>
+              <ul className="space-y-2 sm:space-y-3">
                 <li className="flex items-start">
-                  <MapPin size={18} className="mr-2 mt-1 text-blue-300" />
-                  <span className="text-blue-100">
+                  <MapPin size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5 mr-2 mt-1 text-blue-300 flex-shrink-0" />
+                  <span className="text-sm sm:text-base text-blue-100">
                     Yoomo Specs
                     <br />
                     Main Street, Accra
                   </span>
                 </li>
                 <li className="flex items-center">
-                  <Phone size={18} className="mr-2 text-blue-300" />
-                  <span className="text-blue-100">+233-55-806-8774</span>
+                  <Phone size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5 mr-2 text-blue-300 flex-shrink-0" />
+                  <a href="tel:+233558068774" className="text-sm sm:text-base text-blue-100 hover:text-white transition-colors">+233-55-806-8774</a>
                 </li>
                 <li className="flex items-center">
-                  <Mail size={18} className="mr-2 text-blue-300" />
-                  <span className="text-blue-100">
+                  <Mail size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5 mr-2 text-blue-300 flex-shrink-0" />
+                  <a href="mailto:info@newrelief.org" className="text-sm sm:text-base text-blue-100 hover:text-white transition-colors break-all">
                     info@newrelief.org
-                  </span>
+                  </a>
                 </li>
               </ul>
             </motion.div>
@@ -303,35 +303,35 @@ const Footer = () => {
 
         {/* Newsletter Subscription */}
         <motion.div 
-          className="border-t border-blue-700/30 my-8 pt-8"
+          className="border-t border-blue-700/30 my-6 sm:my-8 pt-6 sm:pt-8"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ delay: 0.8, duration: 0.7 }}
         >
           <motion.div 
-            className="backdrop-blur-xl bg-blue-800/40 p-6 rounded-lg shadow-lg border border-blue-700/30"
+            className="backdrop-blur-xl bg-blue-800/40 p-4 sm:p-5 md:p-6 rounded-lg shadow-lg border border-blue-700/30"
             initial="rest"
             whileHover="hover"
             animate="rest"
             variants={cardHoverAnimation}
           >
-            <div className="md:flex items-center justify-between">
+            <div className="md:flex items-center justify-between gap-4">
               <div className="mb-4 md:mb-0 md:mr-8">
-                <h4 className="text-lg font-bold mb-2 text-white">
+                <h4 className="text-base sm:text-lg font-bold mb-2 text-white">
                   Subscribe to Our Newsletter
                 </h4>
-                <p className="text-blue-100">
+                <p className="text-sm sm:text-base text-blue-100">
                   Stay updated with sermons, events, and prayer requests.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
                 <input
                   type="email"
                   placeholder="Your email address"
-                  className="px-4 py-2 bg-blue-700/60 backdrop-blur-sm text-white rounded-l focus:outline-none focus:ring-2 focus:ring-blue-400 mb-2 sm:mb-0 border border-blue-600/30"
+                  className="px-3 sm:px-4 py-2 bg-blue-700/60 backdrop-blur-sm text-white rounded sm:rounded-l focus:outline-none focus:ring-2 focus:ring-blue-400 border border-blue-600/30 text-sm sm:text-base"
                 />
                 <motion.button 
-                  className="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-r font-medium transition-colors text-white"
+                  className="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded sm:rounded-r font-medium transition-colors text-white text-sm sm:text-base touch-manipulation"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -344,37 +344,37 @@ const Footer = () => {
 
         {/* Bottom Footer */}
         <motion.div 
-          className="border-t border-blue-700/30 pt-6 mt-6"
+          className="border-t border-blue-700/30 pt-4 sm:pt-6 mt-4 sm:mt-6"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ delay: 1, duration: 0.7 }}
         >
-          <div className="flex flex-col md:flex-row md:justify-between items-center">
-            <p className="text-sm text-blue-200 mb-4 md:mb-0">
+          <div className="flex flex-col md:flex-row md:justify-between items-center gap-3 sm:gap-4">
+            <p className="text-xs sm:text-sm text-blue-200 text-center md:text-left">
               © 2025 New Relief International. All rights reserved.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
               <a
                 href="#"
-                className="text-sm text-blue-200 hover:text-white transition-colors"
+                className="text-xs sm:text-sm text-blue-200 hover:text-white transition-colors"
               >
                 Privacy Policy
               </a>
               <a
                 href="#"
-                className="text-sm text-blue-200 hover:text-white transition-colors"
+                className="text-xs sm:text-sm text-blue-200 hover:text-white transition-colors"
               >
                 Terms of Service
               </a>
               <a
                 href="#"
-                className="text-sm text-blue-200 hover:text-white transition-colors"
+                className="text-xs sm:text-sm text-blue-200 hover:text-white transition-colors"
               >
                 Accessibility
               </a>
               <a 
                 href="#" 
-                className="text-sm text-blue-200 hover:text-white transition-colors"
+                className="text-xs sm:text-sm text-blue-200 hover:text-white transition-colors"
               >
                 Site Map
               </a>
@@ -385,7 +385,7 @@ const Footer = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <span>Made with</span>
+            <span>Warriors of God !!!</span>
             <motion.div
               animate={{ 
                 scale: [1, 1.2, 1],
@@ -397,9 +397,9 @@ const Footer = () => {
                 duration: 2
               }}
             >
-              <Heart size={16} className="mx-1 text-red-400" />
+             
             </motion.div>
-            <span>in service to Christ</span>
+          
           </motion.div>
         </motion.div>
       </div>

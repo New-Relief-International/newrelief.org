@@ -72,23 +72,23 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-16 px-4">
+    <div className="min-h-screen bg-white py-10 sm:py-12 md:py-16 px-3 sm:px-4 overflow-x-hidden">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12 mt-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12 mt-8 sm:mt-10 md:mt-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-2 sm:mb-3">
             Get In Touch
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600">
             We'd love to hear from you
           </p>
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex justify-center gap-4 mb-12">
+        <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-10 md:mb-12">
           <button
             onClick={() => handleTabSwitch("contact")}
-            className={`px-6 py-3 rounded-lg font-medium transition-all ${
+            className={`px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 rounded-lg font-medium transition-all text-sm sm:text-base touch-manipulation active:scale-95 ${
               activeTab === "contact"
                 ? "bg-blue-600 text-white shadow-lg"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -98,7 +98,7 @@ export default function ContactPage() {
           </button>
           <button
             onClick={() => handleTabSwitch("membership")}
-            className={`px-6 py-3 rounded-lg font-medium transition-all ${
+            className={`px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 rounded-lg font-medium transition-all text-sm sm:text-base touch-manipulation active:scale-95 ${
               activeTab === "membership"
                 ? "bg-blue-600 text-white shadow-lg"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -111,38 +111,38 @@ export default function ContactPage() {
         <div ref={containerRef}>
           {/* Contact Section */}
           {activeTab === "contact" && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
               {/* Contact Info */}
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
                     Contact Information
                   </h2>
                   
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <MapPin className="text-blue-600 flex-shrink-0 mt-1" size={20} />
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <MapPin className="text-blue-600 flex-shrink-0 mt-1" size={18} style={{ width: '18px', height: '18px' }} />
                       <div>
-                        <p className="font-medium text-gray-900">Address</p>
-                        <p className="text-gray-600">Yoomo Specs, Main Street<br />Accra, Ghana</p>
+                        <p className="font-medium text-gray-900 text-sm sm:text-base">Address</p>
+                        <p className="text-sm sm:text-base text-gray-600">Yoomo Specs, Main Street<br />Accra, Ghana</p>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                      <Phone className="text-blue-600 flex-shrink-0 mt-1" size={20} />
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <Phone className="text-blue-600 flex-shrink-0 mt-1" size={18} style={{ width: '18px', height: '18px' }} />
                       <div>
-                        <p className="font-medium text-gray-900">Phone</p>
-                        <a href="tel:+233558068774" className="text-gray-600 hover:text-blue-600">
+                        <p className="font-medium text-gray-900 text-sm sm:text-base">Phone</p>
+                        <a href="tel:+233558068774" className="text-sm sm:text-base text-gray-600 hover:text-blue-600">
                           +233-55-806-8774
                         </a>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                      <Mail className="text-blue-600 flex-shrink-0 mt-1" size={20} />
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <Mail className="text-blue-600 flex-shrink-0 mt-1" size={18} style={{ width: '18px', height: '18px' }} />
                       <div>
-                        <p className="font-medium text-gray-900">Email</p>
-                        <a href="mailto:info@newrelief.org" className="text-gray-600 hover:text-blue-600">
+                        <p className="font-medium text-gray-900 text-sm sm:text-base">Email</p>
+                        <a href="mailto:info@newrelief.org" className="text-sm sm:text-base text-gray-600 hover:text-blue-600 break-all">
                           info@newrelief.org
                         </a>
                       </div>
@@ -150,9 +150,9 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="pt-8 border-t border-gray-200">
-                  <h3 className="font-semibold text-gray-900 mb-3">Service Times</h3>
-                  <div className="space-y-2 text-gray-600">
+                <div className="pt-6 sm:pt-8 border-t border-gray-200">
+                  <h3 className="font-semibold text-gray-900 mb-2 sm:mb-3 text-sm sm:text-base">Service Times</h3>
+                  <div className="space-y-1.5 sm:space-y-2 text-sm sm:text-base text-gray-600">
                     <p>Sunday: 8:00 AM - 12:00 PM</p>
                     <p>Wednesday: 6:00 PM</p>
                     <p>Friday: 7:00 PM</p>
@@ -160,15 +160,15 @@ export default function ContactPage() {
                 </div>
 
                 {/* Option 2: Popup Button */}
-                <div className="pt-8 border-t border-gray-200">
-                  <p className="text-sm text-gray-600 mb-3">
+                <div className="pt-6 sm:pt-8 border-t border-gray-200">
+                  <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3">
                     Or open the form in a popup:
                   </p>
                   <button
                     onClick={() => openTallyPopup(TALLY_CONTACT_FORM_ID)}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 active:scale-95 transition-colors text-sm sm:text-base touch-manipulation"
                   >
-                    <ExternalLink size={18} />
+                    <ExternalLink size={16} style={{ width: '16px', height: '16px' }} />
                     Open Contact Form
                   </button>
                 </div>
@@ -176,7 +176,7 @@ export default function ContactPage() {
 
               {/* Embedded Tally Contact Form */}
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
                   Send a Message
                 </h2>
 
@@ -193,7 +193,7 @@ export default function ContactPage() {
                   marginHeight="0"
                   marginWidth="0"
                   title="Contact Form"
-                  className="rounded-lg"
+                  className="rounded-lg w-full"
                 ></iframe>
 
                 {/* Fallback if form ID not set */}
@@ -222,14 +222,14 @@ export default function ContactPage() {
           {/* Membership Section */}
           {activeTab === "membership" && (
             <div className="max-w-2xl mx-auto">
-              <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <User className="text-blue-600" size={28} />
+              <div className="text-center mb-6 sm:mb-8">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <User className="text-blue-600" size={24} style={{ width: '24px', height: '24px' }} />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                   Join Our Church Family
                 </h2>
-                <p className="text-gray-600">
+                <p className="text-sm sm:text-base text-gray-600 px-2">
                   Fill out the form below and we'll get back to you within 48 hours
                 </p>
               </div>
@@ -247,7 +247,7 @@ export default function ContactPage() {
                 marginHeight="0"
                 marginWidth="0"
                 title="Membership Form"
-                className="rounded-lg"
+                className="rounded-lg w-full"
               ></iframe>
 
               {/* Fallback if form ID not set */}
@@ -271,21 +271,21 @@ export default function ContactPage() {
               )}
 
               {/* Option 2: Popup Button */}
-              <div className="mt-6 text-center">
-                <p className="text-sm text-gray-600 mb-3">
+              <div className="mt-4 sm:mt-6 text-center">
+                <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-3">
                   Or open the form in a popup:
                 </p>
                 <button
                   onClick={() => openTallyPopup(TALLY_MEMBERSHIP_FORM_ID)}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 transition-colors text-sm sm:text-base touch-manipulation"
                 >
-                  <ExternalLink size={18} />
+                  <ExternalLink size={16} style={{ width: '16px', height: '16px' }} />
                   Open Membership Form
                 </button>
               </div>
 
-              <div className="mt-8 bg-blue-50 border border-blue-100 rounded-lg p-4">
-                <p className="text-sm text-blue-900">
+              <div className="mt-6 sm:mt-8 bg-blue-50 border border-blue-100 rounded-lg p-3 sm:p-4">
+                <p className="text-xs sm:text-sm text-blue-900">
                   <strong>What's next?</strong> After submitting, you'll receive a confirmation email 
                   and a team member will contact you to schedule a meeting.
                 </p>
