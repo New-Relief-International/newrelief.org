@@ -66,6 +66,36 @@ const Messages = () => {
         description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
         spotifyUrl: "https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
         thumbnail: FAITHH
+      }, 
+      {
+        id: 7,
+        title: "TAKE STEPS OF FAITH.",
+        speaker: "Pastor Joseph Mensah",
+        date: "2025-11-08",
+        series: "Faith Series",
+        description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
+        spotifyUrl:"https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
+        thumbnail: FAITHH
+      },
+      {
+        id: 9,
+        title: "The Next Level",
+        speaker: "Pastor Leonard",
+        date: "2025-11-02",
+        series: "Next Level Series",
+        description: "You can't reach the next level while remaining comfortable and attached to the old level.",
+        spotifyUrl: "https://open.spotify.com/embed/episode/6ja8fcuWaKvCH92gqKP88S?utm_source=generator",
+        thumbnail: NextLevel
+      },
+      {
+        id: 9,
+        title: "TAKE STEPS OF FAITH.",
+        speaker: "Pastor Eric Eghan",
+        date: "2025-11-08",
+        series: "Faith Series",
+        description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
+        spotifyUrl: "https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
+        thumbnail: FAITHH
       }
   ];
 
