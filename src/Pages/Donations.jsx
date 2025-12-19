@@ -45,7 +45,8 @@ const DonationsPage = () => {
   }, []);
 
   // IMPORTANT: Replace with your actual Paystack PUBLIC key
-  const paystackPublicKey = 'pk_live_f1b5a7cd35d1b6b2797ed8cf184c4a6360a05a3a';
+  // const paystackPublicKey = 'pk_live_f1b5a7cd35d1b6b2797ed8cf184c4a6360a05a3a';
+  const paystackPublicKey = 'pk_test_9b89ea8a8e883d105a7be53f1c6cf6c1f18708a6';
 
   // Payment handler
   const handlePayment = () => {
