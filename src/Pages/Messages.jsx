@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Search, X, Calendar, User, BookOpen, Play } from 'lucide-react';
-import faith from '../assets/images/faith.jpg';
-import NextLevel from '../assets/images/NextLevel.jpg';
-import MattersOfTheHeart from '../assets/images/MattersOfTheHeart.jpg';
+// import faith from '../assets/images/faith.jpg';
+// import NextLevel from '../assets/images/NextLevel.jpg';
+// import MattersOfTheHeart from '../assets/images/MattersOfTheHeart.jpg';
 
 const Messages = () => {
   // Mock sermon data - replace with your actual data from database
@@ -15,7 +15,7 @@ const Messages = () => {
       series: "Next Level Series",
       description: "You can't reach the next level while remaining comfortable and attached to the old level.",
       spotifyUrl: "https://open.spotify.com/embed/episode/6ja8fcuWaKvCH92gqKP88S?utm_source=generator",
-      thumbnail: NextLevel
+      thumbnail: '/images/NextLevel.jpg'
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const Messages = () => {
       series: "Faith Series",
       description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
       spotifyUrl: "https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
-      thumbnail: faith 
+      thumbnail: '/images/faith.jpg'
     },
     {
         id: 3,
@@ -35,7 +35,7 @@ const Messages = () => {
         series: "Next Level Series",
         description: "We often talk about loving God and loving others, but where does that love truly originate?",
         spotifyUrl: "https://open.spotify.com/embed/episode/2YhrQwdiVK4PKJUc1pNqIT?utm_source=generator",
-        thumbnail: MattersOfTheHeart
+        thumbnail: '/images/MattersOfTheHeart.jpg'
       },
     {
         id: 4,
@@ -45,7 +45,7 @@ const Messages = () => {
         series: "Faith Series",
         description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
         spotifyUrl:"https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
-        thumbnail: faith
+        thumbnail: '/images/faith.jpg'
       },
       {
         id: 5,
@@ -55,7 +55,7 @@ const Messages = () => {
         series: "Next Level Series",
         description: "You can't reach the next level while remaining comfortable and attached to the old level.",
         spotifyUrl: "https://open.spotify.com/embed/episode/6ja8fcuWaKvCH92gqKP88S?utm_source=generator",
-        thumbnail: NextLevel
+        thumbnail: '/images/NextLevel.jpg'
       },
       {
         id: 6,
@@ -65,7 +65,7 @@ const Messages = () => {
         series: "Faith Series",
         description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
         spotifyUrl: "https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
-        thumbnail: faith
+        thumbnail: '/images/faith.jpg'
       }, 
       {
         id: 7,
@@ -75,7 +75,7 @@ const Messages = () => {
         series: "Faith Series",
         description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
         spotifyUrl:"https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
-        thumbnail: faith
+        thumbnail: '/images/faith.jpg'
       },
       {
         id: 9,
@@ -85,7 +85,7 @@ const Messages = () => {
         series: "Next Level Series",
         description: "You can't reach the next level while remaining comfortable and attached to the old level.",
         spotifyUrl: "https://open.spotify.com/embed/episode/6ja8fcuWaKvCH92gqKP88S?utm_source=generator",
-        thumbnail: NextLevel
+        thumbnail: '/images/NextLevel.jpg'
       },
       {
         id: 9,
@@ -95,7 +95,7 @@ const Messages = () => {
         series: "Faith Series",
         description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
         spotifyUrl: "https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
-        thumbnail: faith
+        thumbnail: '/images/faith.jpg'
       }
   ];
 
