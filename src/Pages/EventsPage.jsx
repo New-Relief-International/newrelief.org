@@ -166,13 +166,13 @@ const EventsPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-x-hidden">
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-white py-20 px-4">
+      <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-white py-12 sm:py-16 md:py-20 px-3 sm:px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <Calendar className="mx-auto mb-4" size={64} />
-          <h1 className="text-5xl font-bold mb-4">Our Events</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          <Calendar className="mx-auto mb-3 sm:mb-4" size={48} style={{ width: '48px', height: '48px' }} />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Our Events</h1>
+          <p className="text-base sm:text-lg md:text-xl text-blue-100 max-w-3xl mx-auto px-2">
             Join us throughout the year as we gather to worship, learn, grow, and reach out with the Gospel. 
             Every event is an opportunity to experience God's presence and be part of His mission.
           </p>
@@ -180,58 +180,58 @@ const EventsPage = () => {
       </div>
 
       {/* Events Grid */}
-      <div className="max-w-7xl mx-auto px-4 -mt-12 pb-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 -mt-8 sm:-mt-10 md:-mt-12 pb-12 sm:pb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {events.map((event) => {
             const Icon = event.icon;
             return (
               <div
                 key={event.id}
-                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer border border-gray-100"
+                className="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 sm:hover:-translate-y-2 cursor-pointer border border-gray-100 active:scale-95 touch-manipulation"
                 onClick={() => setSelectedEvent(event)}
               >
                 {/* Event Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-40 sm:h-48 overflow-hidden">
                   <img
                     src={event.image}
                     alt={event.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-4 right-4 bg-white rounded-full p-2">
-                    <Icon className="text-gray-700" size={24} />
+                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white rounded-full p-1.5 sm:p-2">
+                    <Icon className="text-gray-700" size={20} style={{ width: '20px', height: '20px' }} />
                   </div>
-                  <div className="absolute bottom-4 left-4">
-                    <span className="bg-white/90 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4">
+                    <span className="bg-white/90 text-gray-900 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
                       {event.category}
                     </span>
                   </div>
                 </div>
 
                 {/* Event Details */}
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{event.title}</h3>
-                  <p className="text-blue-600 font-semibold mb-4 italic">{event.tagline}</p>
+                <div className="p-4 sm:p-5 md:p-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{event.title}</h3>
+                  <p className="text-blue-600 font-semibold mb-3 sm:mb-4 italic text-sm sm:text-base">{event.tagline}</p>
                   
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-gray-600 text-sm">
-                      <Calendar size={16} className="mr-2 flex-shrink-0" />
-                      <span>{event.date}</span>
+                  <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+                    <div className="flex items-center text-gray-600 text-xs sm:text-sm">
+                      <Calendar size={14} className="sm:w-4 sm:h-4 mr-1.5 sm:mr-2 flex-shrink-0" />
+                      <span className="truncate">{event.date}</span>
                     </div>
-                    <div className="flex items-center text-gray-600 text-sm">
-                      <Clock size={16} className="mr-2 flex-shrink-0" />
-                      <span>{event.time}</span>
+                    <div className="flex items-center text-gray-600 text-xs sm:text-sm">
+                      <Clock size={14} className="sm:w-4 sm:h-4 mr-1.5 sm:mr-2 flex-shrink-0" />
+                      <span className="truncate">{event.time}</span>
                     </div>
-                    <div className="flex items-center text-gray-600 text-sm">
-                      <MapPin size={16} className="mr-2 flex-shrink-0" />
-                      <span>{event.location}</span>
+                    <div className="flex items-center text-gray-600 text-xs sm:text-sm">
+                      <MapPin size={14} className="sm:w-4 sm:h-4 mr-1.5 sm:mr-2 flex-shrink-0" />
+                      <span className="truncate">{event.location}</span>
                     </div>
                   </div>
 
                   <button
-                    className={`w-full bg-gradient-to-r ${event.color} text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:shadow-lg transition-all`}
+                    className={`w-full bg-gradient-to-r ${event.color} text-white py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold flex items-center justify-center gap-2 hover:shadow-lg active:scale-95 transition-all text-sm sm:text-base touch-manipulation`}
                   >
                     Learn More
-                    <ChevronRight size={20} />
+                    <ChevronRight size={18} className="sm:w-5 sm:h-5" />
                   </button>
                 </div>
               </div>
@@ -240,14 +240,14 @@ const EventsPage = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-center text-white shadow-2xl">
-          <Users className="mx-auto mb-4" size={64} />
-          <h2 className="text-4xl font-bold mb-4">Be Part of Something Greater</h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+        <div className="mt-10 sm:mt-12 md:mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 text-center text-white shadow-2xl">
+          <Users className="mx-auto mb-3 sm:mb-4" size={48} style={{ width: '48px', height: '48px' }} />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Be Part of Something Greater</h2>
+          <p className="text-base sm:text-lg md:text-xl text-blue-100 mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
             Every event is an opportunity to grow in faith, connect with believers, and impact lives for eternity. 
             Don't miss out on what God is doing through New Relief International!
           </p>
-          <Link to="/contact-us" className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all shadow-lg">
+          <Link to="/contact-us" className="inline-block bg-white text-blue-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-base sm:text-lg hover:bg-blue-50 active:scale-95 transition-all shadow-lg touch-manipulation">
             Contact Us for More Info
           </Link>
         </div>
@@ -256,15 +256,15 @@ const EventsPage = () => {
       {/* Event Detail Modal */}
       {selectedEvent && (
         <div
-          className="fixed inset-0 bg-black/35 bg-opacity-70 flex items-center justify-center z-50 p-4 overflow-y-auto"
+          className="fixed inset-0 bg-black/35 bg-opacity-70 flex items-center justify-center z-50 p-2 sm:p-4 overflow-y-auto"
           onClick={() => setSelectedEvent(null)}
         >
           <div
-            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl my-8"
+            className="bg-white rounded-xl sm:rounded-2xl max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl my-4 sm:my-8"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header with Image */}
-            <div className="relative h-72">
+            <div className="relative h-48 sm:h-64 md:h-72">
               <img
                 src={selectedEvent.image}
                 alt={selectedEvent.title}
@@ -273,102 +273,104 @@ const EventsPage = () => {
               <div className={`absolute inset-0 bg-black/20 opacity-80`}></div>
               <button
                 onClick={() => setSelectedEvent(null)}
-                className="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors"
+                className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white rounded-full p-1.5 sm:p-2 hover:bg-gray-100 active:bg-gray-200 transition-colors touch-manipulation"
+                aria-label="Close modal"
               >
-                <X size={24} className="text-gray-700" />
+                <X size={20} className="sm:w-6 sm:h-6 text-gray-700" />
               </button>
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                <span className="bg-white/90 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold inline-block mb-3">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-white">
+                <span className="bg-white/90 text-gray-900 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-semibold inline-block mb-2 sm:mb-3">
                   {selectedEvent.category}
                 </span>
-                <h2 className="text-4xl font-bold mb-2">{selectedEvent.title}</h2>
-                <p className="text-xl italic">{selectedEvent.tagline}</p>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">{selectedEvent.title}</h2>
+                <p className="text-base sm:text-lg md:text-xl italic">{selectedEvent.tagline}</p>
               </div>
             </div>
 
             {/* Modal Content */}
-            <div className="p-8">
+            <div className="p-4 sm:p-6 md:p-8">
               {/* Event Info */}
-              <div className={`grid md:grid-cols-3 gap-4 mb-8 p-6 ${selectedEvent.bgColor} border-2 ${selectedEvent.borderColor} rounded-xl`}>
-                <div className="flex items-center gap-3">
-                  <Calendar className="text-gray-700" size={24} />
-                  <div>
+              <div className={`grid sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8 p-4 sm:p-5 md:p-6 ${selectedEvent.bgColor} border-2 ${selectedEvent.borderColor} rounded-lg sm:rounded-xl`}>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <Calendar className="text-gray-700 flex-shrink-0" size={20} style={{ width: '20px', height: '20px' }} />
+                  <div className="min-w-0">
                     <p className="text-xs text-gray-600 font-semibold">Date</p>
-                    <p className="font-bold text-gray-900">{selectedEvent.date}</p>
+                    <p className="font-bold text-gray-900 text-sm sm:text-base truncate">{selectedEvent.date}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Clock className="text-gray-700" size={24} />
-                  <div>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <Clock className="text-gray-700 flex-shrink-0" size={20} style={{ width: '20px', height: '20px' }} />
+                  <div className="min-w-0">
                     <p className="text-xs text-gray-600 font-semibold">Time</p>
-                    <p className="font-bold text-gray-900">{selectedEvent.time}</p>
+                    <p className="font-bold text-gray-900 text-sm sm:text-base truncate">{selectedEvent.time}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <MapPin className="text-gray-700" size={24} />
-                  <div>
+                <div className="flex items-center gap-2 sm:gap-3 sm:col-span-2 md:col-span-1">
+                  <MapPin className="text-gray-700 flex-shrink-0" size={20} style={{ width: '20px', height: '20px' }} />
+                  <div className="min-w-0">
                     <p className="text-xs text-gray-600 font-semibold">Location</p>
-                    <p className="font-bold text-gray-900">{selectedEvent.location}</p>
+                    <p className="font-bold text-gray-900 text-sm sm:text-base truncate">{selectedEvent.location}</p>
                   </div>
                 </div>
               </div>
 
               {/* Description */}
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">About This Event</h3>
-                <p className="text-gray-700 leading-relaxed text-lg">{selectedEvent.description}</p>
+              <div className="mb-6 sm:mb-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">About This Event</h3>
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg">{selectedEvent.description}</p>
               </div>
 
               {/* Highlights */}
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Event Highlights</h3>
-                <ul className="space-y-3">
+              <div className="mb-6 sm:mb-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Event Highlights</h3>
+                <ul className="space-y-2 sm:space-y-3">
                   {selectedEvent.highlights.map((highlight, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <ChevronRight className={`text-blue-600 flex-shrink-0 mt-1`} size={20} />
-                      <span className="text-gray-700">{highlight}</span>
+                    <li key={index} className="flex items-start gap-2 sm:gap-3">
+                      <ChevronRight className={`text-blue-600 flex-shrink-0 mt-1`} size={18} style={{ width: '18px', height: '18px' }} />
+                      <span className="text-sm sm:text-base text-gray-700">{highlight}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Audience */}
-              <div className={`p-6 ${selectedEvent.bgColor} border-2 ${selectedEvent.borderColor} rounded-xl mb-6`}>
-                <div className="flex items-center gap-3">
-                  <Users className="text-gray-700" size={24} />
-                  <div>
-                    <p className="text-sm text-gray-600 font-semibold">Who Should Attend</p>
-                    <p className="text-lg font-bold text-gray-900">{selectedEvent.audience}</p>
+              <div className={`p-4 sm:p-5 md:p-6 ${selectedEvent.bgColor} border-2 ${selectedEvent.borderColor} rounded-lg sm:rounded-xl mb-4 sm:mb-6`}>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <Users className="text-gray-700 flex-shrink-0" size={20} style={{ width: '20px', height: '20px' }} />
+                  <div className="min-w-0">
+                    <p className="text-xs sm:text-sm text-gray-600 font-semibold">Who Should Attend</p>
+                    <p className="text-base sm:text-lg font-bold text-gray-900">{selectedEvent.audience}</p>
                   </div>
                 </div>
               </div>
 
               {/* Registration Section */}
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {selectedEvent.registrationOpen && selectedEvent.lumaEventId ? (
                   <>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Register for This Event</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Register for This Event</h3>
                     
                     {/* Embedded Luma Registration */}
-                    <div className="bg-gray-50 rounded-xl p-4 border-2 border-gray-200">
+                    <div className="bg-gray-50 rounded-lg sm:rounded-xl p-2 sm:p-4 border-2 border-gray-200 overflow-hidden">
                       <iframe
                         src={`https://lu.ma/embed/event/${selectedEvent.lumaEventId}/simple`}
                         width="100%"
-                        height="450"
+                        height="400"
                         frameBorder="0"
                         style={{ border: '1px solid #bfcbda88', borderRadius: '8px' }}
                         allow="fullscreen; payment"
                         aria-hidden="false"
                         tabIndex="0"
+                        className="w-full"
                       ></iframe>
                     </div>
 
-                    <div className="bg-green-50 border-2 border-green-200 rounded-xl p-4">
-                      <div className="flex items-start gap-3">
-                        <CheckCircle className="text-green-600 flex-shrink-0 mt-1" size={24} />
-                        <div className="text-sm text-green-800">
-                          <p className="font-bold mb-2">✓ What Happens After Registration:</p>
-                          <ul className="space-y-1 ml-4 list-disc">
+                    <div className="bg-green-50 border-2 border-green-200 rounded-lg sm:rounded-xl p-3 sm:p-4">
+                      <div className="flex items-start gap-2 sm:gap-3">
+                        <CheckCircle className="text-green-600 flex-shrink-0 mt-1" size={20} style={{ width: '20px', height: '20px' }} />
+                        <div className="text-xs sm:text-sm text-green-800">
+                          <p className="font-bold mb-1 sm:mb-2">✓ What Happens After Registration:</p>
+                          <ul className="space-y-1 ml-3 sm:ml-4 list-disc">
                             <li><strong>Instant confirmation email</strong> with your unique ticket ID</li>
                             <li><strong>Calendar invite</strong> automatically added (Google, Apple, Outlook)</li>
                             <li><strong>Event reminders</strong> sent before the date</li>
@@ -384,16 +386,16 @@ const EventsPage = () => {
                       href={selectedEvent.bookingUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`block w-full bg-gradient-to-r ${selectedEvent.color} text-white py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all text-center`}
+                      className={`block w-full bg-gradient-to-r ${selectedEvent.color} text-white py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-base sm:text-lg hover:shadow-xl active:scale-95 transition-all text-center touch-manipulation`}
                     >
                       Register Now - Get Your Ticket
                     </a>
-                    <div className="bg-green-50 border-2 border-green-200 rounded-xl p-4">
-                      <div className="flex items-start gap-3">
-                        <CheckCircle className="text-green-600 flex-shrink-0 mt-1" size={24} />
-                        <div className="text-sm text-green-800">
+                    <div className="bg-green-50 border-2 border-green-200 rounded-lg sm:rounded-xl p-3 sm:p-4">
+                      <div className="flex items-start gap-2 sm:gap-3">
+                        <CheckCircle className="text-green-600 flex-shrink-0 mt-1" size={20} style={{ width: '20px', height: '20px' }} />
+                        <div className="text-xs sm:text-sm text-green-800">
                           <p className="font-bold mb-1">✓ What You'll Get:</p>
-                          <ul className="space-y-1 ml-4 list-disc">
+                          <ul className="space-y-1 ml-3 sm:ml-4 list-disc">
                             <li>Instant email confirmation with unique ticket ID</li>
                             <li>Automatic calendar sync (Google, Apple, Outlook)</li>
                             <li>Event reminders before the date</li>

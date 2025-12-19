@@ -178,35 +178,35 @@ export default function OurMinistries() {
   };
 
   return (
-    <section ref={sectionRef} className="py-16 px-4 max-w-7xl mx-auto">
-      <div className="text-center mb-12">
-        <h2 ref={titleRef} className="text-4xl font-bold text-gray-900 mb-4">
+    <section ref={sectionRef} className="py-10 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 max-w-7xl mx-auto">
+      <div className="text-center mb-8 sm:mb-10 md:mb-12">
+        <h2 ref={titleRef} className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
           Our Ministries
         </h2>
-        <p ref={subtitleRef} className="text-lg text-gray-700 max-w-3xl mx-auto">
+        <p ref={subtitleRef} className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto px-2">
           We offer various ministries to help you connect, grow, and serve in our community.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
         {ministries.map((ministry, index) => {
           const IconComponent = ministry.icon;
           return (
             <div
               key={index}
               ref={el => cardsRef.current[index] = el}
-              className="border border-gray-200 rounded-lg p-6 flex flex-col items-center text-center cursor-pointer"
+              className="border border-gray-200 rounded-lg p-4 sm:p-5 md:p-6 flex flex-col items-center text-center cursor-pointer hover:shadow-lg transition-shadow active:scale-95 touch-manipulation"
               onMouseEnter={() => handleCardHover(index)}
               onMouseLeave={() => handleCardLeave(index)}
             >
               <div 
                 ref={el => iconsRef.current[index] = el}
-                className="bg-amber-100 rounded-full w-16 h-16 flex items-center justify-center text-amber-500 mb-4"
+                className="bg-amber-100 rounded-full w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center text-amber-500 mb-3 sm:mb-4"
               >
-                <IconComponent className="w-6 h-6" />
+                <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{ministry.title}</h3>
-              <p className="text-gray-600">{ministry.description}</p>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">{ministry.title}</h3>
+              <p className="text-sm sm:text-base text-gray-600">{ministry.description}</p>
             </div>
           );
         })}

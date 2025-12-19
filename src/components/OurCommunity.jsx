@@ -139,7 +139,7 @@ export default function CommunityCarousel() {
 
   const variants = {
     enter: (direction) => ({
-      x: direction > 0 ? 500 : -500,
+      x: direction > 0 ? 300 : -300,
       y: 20,
       opacity: 0,
       scale: 0.95,
@@ -151,7 +151,7 @@ export default function CommunityCarousel() {
       scale: 1,
     },
     exit: (direction) => ({
-      x: direction < 0 ? 500 : -500,
+      x: direction < 0 ? 300 : -300,
       y: -20,
       opacity: 0,
       scale: 0.95,
@@ -159,17 +159,17 @@ export default function CommunityCarousel() {
   };
 
   return (
-    <div ref={carouselRef} className="bg-gray-50 py-16">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-2">Our Community</h2>
-          <p className="text-lg text-gray-600">
+    <div ref={carouselRef} className="bg-gray-50 py-10 sm:py-12 md:py-16 overflow-x-hidden">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">Our Community</h2>
+          <p className="text-base sm:text-lg text-gray-600 px-2">
             Hear from members of our church family about their experiences.
           </p>
         </div>
 
         <div className="max-w-5xl mx-auto">
-          <div ref={dragContainerRef} className="cursor-grab active:cursor-grabbing">
+          <div ref={dragContainerRef} className="cursor-grab active:cursor-grabbing touch-pan-x">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
@@ -186,21 +186,21 @@ export default function CommunityCarousel() {
                 }}
                 className="w-full"
               >
-                <div className="bg-white rounded-lg shadow-lg p-8">
-                  <div className="text-xl italic text-gray-700 mb-6">
+                <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+                  <div className="text-base sm:text-lg md:text-xl italic text-gray-700 mb-4 sm:mb-6">
                     "{testimonials[currentIndex].quote}"
                   </div>
                   <div className="flex items-center">
-                    <div className="h-16 w-16 rounded-full overflow-hidden bg-gray-200">
+                    <div className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
                       <img 
                         src={testimonials[currentIndex].image} 
                         alt={testimonials[currentIndex].name}
                         className="h-full w-full object-cover"
                       />
                     </div>
-                    <div className="ml-4">
-                      <p className="text-lg font-semibold text-gray-900">{testimonials[currentIndex].name}</p>
-                      <p className="text-gray-500">{testimonials[currentIndex].since}</p>
+                    <div className="ml-3 sm:ml-4 min-w-0">
+                      <p className="text-base sm:text-lg font-semibold text-gray-900 truncate">{testimonials[currentIndex].name}</p>
+                      <p className="text-sm sm:text-base text-gray-500">{testimonials[currentIndex].since}</p>
                     </div>
                   </div>
                 </div>
@@ -209,23 +209,23 @@ export default function CommunityCarousel() {
           </div>
 
           {/* Navigation buttons */}
-          <div className="flex justify-center gap-4 mt-8">
+          <div className="flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
             <button
               onClick={goPrev}
-              className="bg-white text-gray-800 px-6 py-2 rounded-lg shadow hover:shadow-lg transition-shadow"
+              className="bg-white text-gray-800 px-4 sm:px-6 py-2 rounded-lg shadow hover:shadow-lg active:scale-95 transition-all text-sm sm:text-base touch-manipulation"
             >
               Previous
             </button>
             <button
               onClick={goNext}
-              className="bg-white text-gray-800 px-6 py-2 rounded-lg shadow hover:shadow-lg transition-shadow"
+              className="bg-white text-gray-800 px-4 sm:px-6 py-2 rounded-lg shadow hover:shadow-lg active:scale-95 transition-all text-sm sm:text-base touch-manipulation"
             >
               Next
             </button>
           </div>
 
           {/* Indicator dots */}
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-2 mt-4 sm:mt-6">
             {testimonials.map((_, index) => (
               <button
                 key={index}
@@ -233,11 +233,12 @@ export default function CommunityCarousel() {
                   setDirection(index > currentIndex ? 1 : -1);
                   setCurrentIndex(index);
                 }}
-                className={`h-2 rounded-full transition-all ${
+                className={`h-2 rounded-full transition-all touch-manipulation ${
                   index === currentIndex 
-                    ? 'w-8 bg-gray-800' 
+                    ? 'w-6 sm:w-8 bg-gray-800' 
                     : 'w-2 bg-gray-300 hover:bg-gray-400'
                 }`}
+                aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>
