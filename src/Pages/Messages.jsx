@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Search, X, Calendar, User, BookOpen, Play } from 'lucide-react';
-import FAITHH from '../assets/images/FAITHH.jpg';
+import faith from '../assets/images/faith.jpg';
 import NextLevel from '../assets/images/NextLevel.jpg';
 import MattersOfTheHeart from '../assets/images/MattersOfTheHeart.jpg';
 
@@ -25,7 +25,7 @@ const Messages = () => {
       series: "Faith Series",
       description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
       spotifyUrl: "https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
-      thumbnail: FAITHH 
+      thumbnail: faith 
     },
     {
         id: 3,
@@ -45,7 +45,7 @@ const Messages = () => {
         series: "Faith Series",
         description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
         spotifyUrl:"https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
-        thumbnail: FAITHH
+        thumbnail: faith
       },
       {
         id: 5,
@@ -65,7 +65,7 @@ const Messages = () => {
         series: "Faith Series",
         description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
         spotifyUrl: "https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
-        thumbnail: FAITHH
+        thumbnail: faith
       }, 
       {
         id: 7,
@@ -75,7 +75,7 @@ const Messages = () => {
         series: "Faith Series",
         description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
         spotifyUrl:"https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
-        thumbnail: FAITHH
+        thumbnail: faith
       },
       {
         id: 9,
@@ -95,7 +95,7 @@ const Messages = () => {
         series: "Faith Series",
         description: "We specially welcome you to the month of November and our theme for the month is TAKE STEPS OF FAITH",
         spotifyUrl: "https://open.spotify.com/embed/episode/65ghZFaAootxFfZuHH0s9r?utm_source=generator",
-        thumbnail: FAITHH
+        thumbnail: faith
       }
   ];
 
