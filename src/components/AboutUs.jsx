@@ -332,10 +332,12 @@ const LiquidGlassImage = ({ src, alt, className = "" }) => {
   const imageRef = useRef(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [canvasError, setCanvasError] = useState(false);
   const mousePos = useRef({ x: -1000, y: -1000 });
   const animationRef = useRef(null);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -345,23 +347,41 @@ const LiquidGlassImage = ({ src, alt, className = "" }) => {
   }, []);
 
   useEffect(() => {
+    if (canvasError) return;
+
     const canvas = canvasRef.current;
     const image = imageRef.current;
     
     if (!canvas || !image || !isLoaded) return;
 
-    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    let ctx;
+    try {
+      ctx = canvas.getContext('2d', { willReadFrequently: true });
+    } catch {
+      setCanvasError(true);
+      return;
+    }
+
+    if (!ctx) {
+      setCanvasError(true);
+      return;
+    }
+
     let imageData = null;
     let originalData = null;
 
     const resizeCanvas = () => {
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width;
-      canvas.height = rect.height;
-      
-      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-      imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      originalData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      try {
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width || canvas.offsetWidth || 1;
+        canvas.height = rect.height || canvas.offsetHeight || 1;
+        
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        originalData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      } catch {
+        setCanvasError(true);
+      }
     };
 
     const handleInteraction = (e) => {
@@ -387,79 +407,87 @@ const LiquidGlassImage = ({ src, alt, className = "" }) => {
     };
 
     const distortImage = () => {
-      if (!imageData || !originalData) return;
-
-      ctx.putImageData(originalData, 0, 0);
-      
-      const { x: mouseX, y: mouseY } = mousePos.current;
-      
-      if (mouseX < 0 || mouseY < 0 || mouseX > canvas.width || mouseY > canvas.height) {
+      if (canvasError) return;
+      if (!imageData || !originalData) {
         animationRef.current = requestAnimationFrame(distortImage);
         return;
       }
 
-      imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const pixels = imageData.data;
-      
-      // Adjust distortion parameters based on device
-      const distortionRadius = isMobile ? 80 : 120;
-      const distortionStrength = isMobile ? 25 : 35;
-      
-      const tempCanvas = document.createElement('canvas');
-      tempCanvas.width = canvas.width;
-      tempCanvas.height = canvas.height;
-      const tempCtx = tempCanvas.getContext('2d');
-      tempCtx.drawImage(image, 0, 0, canvas.width, canvas.height);
-      const tempImageData = tempCtx.getImageData(0, 0, canvas.width, canvas.height);
-      
-      for (let y = 0; y < canvas.height; y++) {
-        for (let x = 0; x < canvas.width; x++) {
-          const dx = x - mouseX;
-          const dy = y - mouseY;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < distortionRadius) {
-            const distortAmount = (1 - distance / distortionRadius) * distortionStrength;
-            const angle = Math.atan2(dy, dx);
-            const wave = Math.sin(distance * 0.1 - Date.now() * 0.005) * distortAmount;
+      try {
+        ctx.putImageData(originalData, 0, 0);
+        
+        const { x: mouseX, y: mouseY } = mousePos.current;
+        
+        if (mouseX < 0 || mouseY < 0 || mouseX > canvas.width || mouseY > canvas.height) {
+          animationRef.current = requestAnimationFrame(distortImage);
+          return;
+        }
+
+        imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const pixels = imageData.data;
+        
+        // Slightly lighter params on mobile, but still full effect
+        const distortionRadius = isMobile ? 90 : 120;
+        const distortionStrength = isMobile ? 25 : 35;
+        
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = canvas.width;
+        tempCanvas.height = canvas.height;
+        const tempCtx = tempCanvas.getContext('2d');
+        tempCtx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        const tempImageData = tempCtx.getImageData(0, 0, canvas.width, canvas.height);
+        
+        for (let y = 0; y < canvas.height; y++) {
+          for (let x = 0; x < canvas.width; x++) {
+            const dx = x - mouseX;
+            const dy = y - mouseY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
             
-            const srcX = Math.floor(x + Math.cos(angle) * wave);
-            const srcY = Math.floor(y + Math.sin(angle) * wave);
-            
-            if (srcX >= 0 && srcX < canvas.width && srcY >= 0 && srcY < canvas.height) {
-              const destIndex = (y * canvas.width + x) * 4;
-              const srcIndex = (srcY * canvas.width + srcX) * 4;
+            if (distance < distortionRadius) {
+              const distortAmount = (1 - distance / distortionRadius) * distortionStrength;
+              const angle = Math.atan2(dy, dx);
+              const wave = Math.sin(distance * 0.1 - Date.now() * 0.005) * distortAmount;
               
-              pixels[destIndex] = tempImageData.data[srcIndex];
-              pixels[destIndex + 1] = tempImageData.data[srcIndex + 1];
-              pixels[destIndex + 2] = tempImageData.data[srcIndex + 2];
-              pixels[destIndex + 3] = tempImageData.data[srcIndex + 3];
+              const srcX = Math.floor(x + Math.cos(angle) * wave);
+              const srcY = Math.floor(y + Math.sin(angle) * wave);
               
-              const shimmer = (1 - distance / distortionRadius) * 30;
-              pixels[destIndex] = Math.min(255, pixels[destIndex] + shimmer);
-              pixels[destIndex + 1] = Math.min(255, pixels[destIndex + 1] + shimmer);
-              pixels[destIndex + 2] = Math.min(255, pixels[destIndex + 2] + shimmer);
+              if (srcX >= 0 && srcX < canvas.width && srcY >= 0 && srcY < canvas.height) {
+                const destIndex = (y * canvas.width + x) * 4;
+                const srcIndex = (srcY * canvas.width + srcX) * 4;
+                
+                pixels[destIndex] = tempImageData.data[srcIndex];
+                pixels[destIndex + 1] = tempImageData.data[srcIndex + 1];
+                pixels[destIndex + 2] = tempImageData.data[srcIndex + 2];
+                pixels[destIndex + 3] = tempImageData.data[srcIndex + 3];
+                
+                const shimmer = (1 - distance / distortionRadius) * 30;
+                pixels[destIndex] = Math.min(255, pixels[destIndex] + shimmer);
+                pixels[destIndex + 1] = Math.min(255, pixels[destIndex + 1] + shimmer);
+                pixels[destIndex + 2] = Math.min(255, pixels[destIndex + 2] + shimmer);
+              }
             }
           }
         }
+        
+        ctx.putImageData(imageData, 0, 0);
+        
+        // Draw visual feedback circles
+        ctx.save();
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+        ctx.lineWidth = isMobile ? 2 : 3;
+        ctx.beginPath();
+        ctx.arc(mouseX, mouseY, distortionRadius * 0.8, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.lineWidth = isMobile ? 1 : 2;
+        ctx.beginPath();
+        ctx.arc(mouseX, mouseY, distortionRadius, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+      } catch {
+        setCanvasError(true);
       }
-      
-      ctx.putImageData(imageData, 0, 0);
-      
-      // Draw visual feedback circles
-      ctx.save();
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
-      ctx.lineWidth = isMobile ? 2 : 3;
-      ctx.beginPath();
-      ctx.arc(mouseX, mouseY, distortionRadius * 0.8, 0, Math.PI * 2);
-      ctx.stroke();
-      
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-      ctx.lineWidth = isMobile ? 1 : 2;
-      ctx.beginPath();
-      ctx.arc(mouseX, mouseY, distortionRadius, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.restore();
       
       animationRef.current = requestAnimationFrame(distortImage);
     };
@@ -491,7 +519,20 @@ const LiquidGlassImage = ({ src, alt, className = "" }) => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isLoaded, isMobile]);
+  }, [isLoaded, isMobile, canvasError]);
+
+  // If canvas fails for any reason, gracefully fall back to an animated but static image
+  if (canvasError) {
+    return (
+      <div className={`relative ${className}`}>
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover rounded-lg"
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={`relative ${className}`}>
