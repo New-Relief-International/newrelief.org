@@ -3,6 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Draggable } from "gsap/Draggable";
+import Leo from '../assets/images/Leo.jpg'
+import Philip from '../assets/images/Philip.jpg'
+import Asantewaa from '../assets/images/Asantewaa.jpg'
+import Eric from '../assets/images/Eric.jpg'
+import Prince from '../assets/images/Prince.jpg'
+
 
 gsap.registerPlugin(ScrollTrigger, Draggable);
 
@@ -18,38 +24,38 @@ export default function CommunityCarousel() {
   const testimonials = [
     {
       id: 1,
-      quote: "Finding Grace Community Church has been a blessing for our family. The children's ministry is amazing, and we've made lifelong friends here.",
-      name: "Sarah Johnson",
+      quote: "Finding New Relief International has been a blessing for our family. The children's ministry is amazing, and we've made lifelong friends here.",
+      name: "Mr sLeonard",
       since: "Member since 2018",
-      image: "/api/placeholder/64/64"
+      image: Leo
     },
     {
       id: 2,
-      quote: "The community groups have helped me grow in my faith and provided support during difficult times. I'm grateful for this church family.",
-      name: "Michael Rodriguez",
+      quote: "New Relief International has helped me grow in my faith and provided support during difficult times. I'm grateful for this church family.",
+      name: "Philip Martei",
       since: "Member since 2020",
-      image: "/api/placeholder/64/64"
+      image: Philip
     },
     {
       id: 3,
-      quote: "As a newcomer to the area, this church welcomed me with open arms. The sermons are inspiring and the people are genuine.",
-      name: "Jennifer Williams",
+      quote: "New Relief International welcomed me with open arms. The sermons are inspiring and the people are genuine.",
+      name: "Ms Joycelyn",
       since: "Member since 2022",
-      image: "/api/placeholder/64/64"
+      image: Asantewaa
     },
     {
       id: 4,
       quote: "I've been part of several ministries here and each one has helped me grow closer to God. The leadership truly cares about each member.",
-      name: "David Thompson",
+      name: "Mr Eric",
       since: "Member since 2015",
-      image: "/api/placeholder/64/64"
+      image: Eric
     },
     {
       id: 5,
       quote: "Our family found a spiritual home here after searching for years. The worship is uplifting and the teaching is biblically sound.",
-      name: "Rebecca Martinez",
+      name: "Mr Prince Aggrey",
       since: "Member since 2019",
-      image: "/api/placeholder/64/64"
+      image: Prince
     }
   ];
 

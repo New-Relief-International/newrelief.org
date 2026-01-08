@@ -368,7 +368,7 @@ const Navbar = () => {
             } text-sm sm:text-base md:text-xl lg:text-2xl leading-tight`}
           >
             <span className="hidden sm:inline">New Relief International</span>
-            <span className="inline sm:hidden">NR International</span>
+            <span className="inline sm:hidden">New Relief International</span>
           </a>
         </div>
 
