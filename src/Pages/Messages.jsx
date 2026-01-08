@@ -199,7 +199,7 @@ const Messages = () => {
                   alt={sermon.title}
                   className="w-full h-full object-cover opacity-80"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                <div className="absolute inset-0 bg-black/65 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
                   <Play className="text-white" size={40} style={{ width: '40px', height: '40px' }} />
                 </div>
               </div>
